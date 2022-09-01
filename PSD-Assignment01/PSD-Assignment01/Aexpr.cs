@@ -175,21 +175,33 @@ public class Mul : Binop
     public override Expr simplify()
     {
         
-        if (value.Item1.Equals(new CstI(1)))
+        var left = value.Item1.simplify();
+        var right = value.Item2.simplify();
+        
+        if (left is CstI i)
         {
-            return value.Item2;
+            if (i.value == 1)
+            {
+                return right;
+            }
+            else if (i.value == 0)
+            {
+                return new CstI(0);
+            }
         } 
-        else if (value.Item2.Equals(new CstI(1)))
+        
+        if (right is CstI rl)
         {
-            return value.Item1;
+            if (rl.value == 1)
+            {
+                return left;
+            }
+            else if (rl.value == 0)
+            {
+                return new CstI(0);
+            }
         }
-        else if (value.Item1.Equals(new CstI(0)) || value.Item2.Equals(new CstI(0)))
-        {
-            return new CstI(0);
-        }
-        else
-        {
-            return new Mul(value.Item1, value.Item2);
-        }
+        return new Mul(left, right);
+        
     }
 }

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qpRjc6fRYF1Y08WO7x1MLC5AK4CgXE7wPQWm+nIMAtVeL5M5Sx/2UGdzbJD+MzzxYWf8fThJWOhSoWl1XYdK5Q==",
+  "dgSpecHash": "jQIdqUGNo4W+ROCXVnUMJdBnRENPaIvVvhNOGwFXH/KUAO5qXjVox5dsV8+uYX5ZoEOOF3WvsJ6nP1YwEg0Mcw==",
   "success": true,
-  "projectFilePath": "/Users/danyalyorulmaz/Desktop/5. Semester/prdat/PSD-Assignment1/PSD-Assignment01/PSD-Assignment01/PSD-Assignment01.fsproj",
+  "projectFilePath": "/Users/Cromski/Documents/ITU/Softwareudvikling/5. Semester/Programmer som data/assignments/PSD-Assignment1/PSD-Assignment01/PSD-Assignment01/PSD-Assignment01.fsproj",
   "expectedPackageFiles": [
-    "/Users/danyalyorulmaz/.nuget/packages/fsharp.core/6.0.1/fsharp.core.6.0.1.nupkg.sha512"
+    "/Users/Cromski/.nuget/packages/fsharp.core/6.0.2/fsharp.core.6.0.2.nupkg.sha512"
   ],
   "logs": []
 }
