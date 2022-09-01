@@ -113,19 +113,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\deniz\\.nuget\\packages\\": {}
+    "/Users/danyalyorulmaz/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\deniz\\OneDrive\\Dokumenter\\GitHub\\PSD-Assignment1\\PSD-Assignment01\\PSD-Assignment01\\PSD-Assignment01.fsproj",
+      "projectUniqueName": "/Users/danyalyorulmaz/Desktop/5. Semester/prdat/PSD-Assignment1/PSD-Assignment01/PSD-Assignment01/PSD-Assignment01.fsproj",
       "projectName": "PSD-Assignment01",
-      "projectPath": "C:\\Users\\deniz\\OneDrive\\Dokumenter\\GitHub\\PSD-Assignment1\\PSD-Assignment01\\PSD-Assignment01\\PSD-Assignment01.fsproj",
-      "packagesPath": "C:\\Users\\deniz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\deniz\\OneDrive\\Dokumenter\\GitHub\\PSD-Assignment1\\PSD-Assignment01\\PSD-Assignment01\\obj\\",
+      "projectPath": "/Users/danyalyorulmaz/Desktop/5. Semester/prdat/PSD-Assignment1/PSD-Assignment01/PSD-Assignment01/PSD-Assignment01.fsproj",
+      "packagesPath": "/Users/danyalyorulmaz/.nuget/packages/",
+      "outputPath": "/Users/danyalyorulmaz/Desktop/5. Semester/prdat/PSD-Assignment1/PSD-Assignment01/PSD-Assignment01/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\deniz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/danyalyorulmaz/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -167,7 +167,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.108\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,3 @@
+/Users/danyalyorulmaz/Desktop/5. Semester/prdat/PSD-Assignment1/PSD-Assignment01/PSD-Assignment01/obj/Debug/net6.0/PSD-Assignment01.fsproj.AssemblyReference.cache
+/Users/danyalyorulmaz/Desktop/5. Semester/prdat/PSD-Assignment1/PSD-Assignment01/PSD-Assignment01/obj/Debug/net6.0/PSD-Assignment01.AssemblyInfoInputs.cache
+/Users/danyalyorulmaz/Desktop/5. Semester/prdat/PSD-Assignment1/PSD-Assignment01/PSD-Assignment01/obj/Debug/net6.0/PSD-Assignment01.AssemblyInfo.fs
