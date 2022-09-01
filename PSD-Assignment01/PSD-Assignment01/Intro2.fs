@@ -126,7 +126,7 @@ let rec simplify (e: aexpr): aexpr =
         
 let rec diff e s =
     match e with
-    |CstI i -> CstI 0
+    |CstI _ -> CstI 0
     |Var s1 when s1 = s-> CstI 1
     |Add(aexpr, aexpr1) -> Add(diff aexpr s, diff aexpr1 s)
     |Sub(aexpr, aexpr1) -> Sub(diff aexpr s, diff aexpr1 s)
