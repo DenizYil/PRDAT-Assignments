@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7Q9P9IXAA6V3q2V0iuwKigH9tvsaSi0BgLABM7OE4xGmN38IHmxnbJoII9OiYyjNesL1+rzl6f4sSlOPczeb/g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\deniz\\OneDrive\\Dokumenter\\GitHub\\PSD-Assignment1\\PSD-Assignment01\\PSD-Assignment01\\PSD-Assignment01.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\deniz\\.nuget\\packages\\fsharp.core\\6.0.1\\fsharp.core.6.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

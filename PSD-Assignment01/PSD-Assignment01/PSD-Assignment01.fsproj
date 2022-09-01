@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>PSD_Assignment01</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Program.fs" />
+        <Compile Include="Intro1.fs" />
+        <Compile Include="Intro2.fs" />
+        <Compile Include="Appendix.fs" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PSD-Assignment01", "PSD-Assignment01\PSD-Assignment01.fsproj", "{C5738ED0-33A1-4BC8-89F3-467A9B9EBBE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5738ED0-33A1-4BC8-89F3-467A9B9EBBE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5738ED0-33A1-4BC8-89F3-467A9B9EBBE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5738ED0-33A1-4BC8-89F3-467A9B9EBBE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5738ED0-33A1-4BC8-89F3-467A9B9EBBE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
