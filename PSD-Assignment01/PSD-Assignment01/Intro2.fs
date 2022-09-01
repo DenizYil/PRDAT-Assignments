@@ -27,6 +27,9 @@ type expr =
   | If of expr * expr * expr
   
 
+
+  
+
 let e1 = CstI 17;;
 
 let e2 = Prim("+", CstI 3, Var "a");;
@@ -70,5 +73,54 @@ let e3v  = eval e3 env;;
 let e4v = eval e4 env
 let e5v = eval e5 env
 let e6v = eval e6 env
-
 let e7v = eval e7 env
+
+
+type aexpr = 
+  | CstI of int
+  | Var of string
+  | Add of aexpr * aexpr
+  | Mul of aexpr * aexpr
+  | Sub of aexpr * aexpr
+  
+let e8 = Sub(Var "v", Add(Var "w", Var "z"))
+
+let e9 = Mul(CstI 2, Sub(Var "v", Add(Var "w", Var "z")))
+
+let e10 = Add(Add(Add(Var "x", Var "y"), Var "z"), Var "v")
+
+let e11 = Add(Var "x", CstI 0)
+
+let e12 = Add(CstI 1, CstI 0)
+
+let e13 = Mul(Add(CstI 1, CstI 0), Add(Var "x", CstI 0))
+
+let rec fmt (e: aexpr) : string =
+    match e with
+    |CstI a -> string a
+    |Var a -> a
+    |Add(aexpr, aexpr1) -> $"({fmt aexpr} + {fmt aexpr1})"
+    |Mul(aexpr, aexpr1) -> $"({fmt aexpr} * {fmt aexpr1})"
+    |Sub(aexpr, aexpr1) -> $"({fmt aexpr} - {fmt aexpr1})"
+    
+let rec simplify (e: aexpr): aexpr =
+    match e with
+    |Add(a, b) ->
+        match simplify a, simplify b with
+        | CstI 0, x -> x
+        | x, CstI 0 -> x
+        | x,y -> Add(x,y)
+    |Sub(a, b) ->
+        match simplify a, simplify b with
+        | x, CstI 0 -> x
+        | x, y when x = y -> CstI 0
+        | x,y -> Sub(x,y)
+    |Mul(a, b) ->
+        match simplify a, simplify b with
+        | CstI 1, x -> x
+        | x, CstI 1 -> x
+        | CstI 0, _ -> CstI 0
+        | _ , CstI 0 -> CstI 0
+        | x,y -> Mul(x,y)
+    | _ -> e
+        
