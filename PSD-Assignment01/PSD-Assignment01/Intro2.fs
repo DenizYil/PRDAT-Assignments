@@ -130,4 +130,4 @@ let rec diff e s =
     |Var s1 -> if s1 = s then CstI 1 else CstI 0
     |Add(aexpr, aexpr1) -> Add(diff aexpr s, diff aexpr1 s)
     |Sub(aexpr, aexpr1) -> Sub(diff aexpr s, diff aexpr1 s)
-    |Add(aexpr, aexpr1) -> Add(Mul((diff aexpr s),aexpr1), Mul(diff aexpr s, (diff aexpr1 s)))
+    |Mul(aexpr, aexpr1) -> Add(Mul((diff aexpr s),aexpr1), Mul(aexpr, (diff aexpr1 s)))
