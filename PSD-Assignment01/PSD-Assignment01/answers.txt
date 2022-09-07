@@ -1,8 +1,8 @@
 Exercise 1.1, solved in Intro2.fs, eval function starting on line 48
 Exercise 1.2, solved in Intro2.fs, aexpr type starts on line 79
 Exercise 1.4, solved in Aexpr.cs
-Exercise 2.1, solved in Intcomp1.fs, eval function starts on line 48
-Exercise 2.2, solved in Intcomp1.fs, freevars function starts on line 210
-Exercise 2.3, solved in Intcomp1.fs, tcomp function starts on line 244
+Exercise 2.1, solved in Intcomp1.fs, eval function starts on line 50
+Exercise 2.2, solved in Intcomp1.fs, freevars function starts on line 212
+Exercise 2.3, solved in Intcomp1.fs, tcomp function starts on line 246
 
 The optional exercise hasn't been completed.
