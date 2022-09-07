@@ -7,6 +7,8 @@
 
 module Intcomp1
 
+let env = [("a", 3); ("c", 78); ("baf", 666); ("b", 111)];;
+
 type expr = 
   | CstI of int
   | Var of string
@@ -240,18 +242,18 @@ let rec getindex vs x =
     | y::yr -> if x=y then 0 else 1 + getindex yr x;;
 
 (* Compiling from expr to texpr *)
-
+let cenv = ["x"; "z"; "y"; "z"]
 let rec tcomp (e : expr) (cenv : string list) : texpr =
     match e with
     | CstI i -> TCstI i
     | Var x  -> TVar (getindex cenv x)
-    | Let(x, ebody) -> 
-      let cenv1 = (List.map (fst) x)@cenv
+    | Let(x, ebody) ->
+      let cenv1 = List.fold (fun acc (var, erhs) -> if List.contains var cenv then acc else acc@[var]) cenv x
       tcomp ebody cenv1
     | Prim(ope, e1, e2) -> TPrim(ope, tcomp e1 cenv, tcomp e2 cenv);;
 
 (* Evaluation of target expressions with variable indexes.  The
-   run-time environment renv is a list of variable values (ints).  *)
+   run-time environment renv is a list of variable values (ints).  TLet(TLet(TLet(), tcomp erhs cenv),)...  *)
 
 let rec teval (e : texpr) (renv : int list) : int =
     match e with

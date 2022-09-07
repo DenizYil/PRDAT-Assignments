@@ -1,6 +1,19 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.XPath;
+
+//Put into C# Interactive environment and run Main() to test :)
+void Main()
+{
+    Expr e = new Add(new CstI(17), new Var("z"));
+    Expr e1 = new Mul(new CstI(17), new Var("z"));
+    Expr e2 = new Sub(new CstI(17), new Var("z"));
+    Expr e3 = new Add(new CstI(17), new CstI(22832472));
+    Expr e4 = new Add(new CstI(0), new CstI(22832472));
+    Console.WriteLine(e.ToString());
+    Console.WriteLine(e1.ToString());
+    Console.WriteLine(e2.ToString());
+    Console.WriteLine(e3.ToString());
+}
 
 public abstract class Expr
 {
