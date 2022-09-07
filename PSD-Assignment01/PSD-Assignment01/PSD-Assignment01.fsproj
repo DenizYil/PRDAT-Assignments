@@ -10,6 +10,7 @@
         <Compile Include="Program.fs" />
         <Compile Include="Intro1.fs" />
         <Compile Include="Intro2.fs" />
+        <Compile Include="Intcomp1.fs" />
         <Compile Include="Appendix.fs" />
         <Compile Include="Aexpr.cs" />
     </ItemGroup>
