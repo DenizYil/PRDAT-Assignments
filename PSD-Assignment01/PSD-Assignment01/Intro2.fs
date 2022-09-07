@@ -58,7 +58,7 @@ let rec eval e (env : (string * int) list) : int =
         match op with
         | "-" -> first - second
         | "==" -> if first = second then 1 else 0
-        | "max" -> if first < second then first else second
+        | "max" -> if first < second then second else first
         | "min" -> if first < second then first else second
         | _ -> failwith "unknown primitive"
         
@@ -128,6 +128,6 @@ let rec diff e s =
     match e with
     |CstI _ -> CstI 0
     |Var s1 -> if s1 = s then CstI 1 else CstI 0
-    |Add(aexpr, aexpr1) -> Add(diff aexpr s, diff aexpr1 s)
-    |Sub(aexpr, aexpr1) -> Sub(diff aexpr s, diff aexpr1 s)
-    |Mul(aexpr, aexpr1) -> Add(Mul((diff aexpr s),aexpr1), Mul(aexpr, (diff aexpr1 s)))
+    |Add(e1, e2) -> Add(diff e1 s, diff e2 s)
+    |Sub(e1, e2) -> Sub(diff e1 s, diff e2 s)
+    |Mul(e1, e2) -> Add(Mul((diff e1 s),e2), Mul(e1, (diff e2 s)))
