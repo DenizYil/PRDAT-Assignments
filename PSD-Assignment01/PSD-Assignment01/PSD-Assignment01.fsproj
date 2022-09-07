@@ -13,6 +13,7 @@
         <Compile Include="Intcomp1.fs" />
         <Compile Include="Appendix.fs" />
         <Compile Include="Aexpr.cs" />
+        <Content Include="answers.txt" />
     </ItemGroup>
 
 </Project>
