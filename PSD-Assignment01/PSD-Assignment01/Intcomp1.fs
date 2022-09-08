@@ -357,8 +357,9 @@ let rec scomp (e : expr) (cenv : stackvalue list) : sinstr list =
     match e with
     | CstI i -> [SCstI i]
     | Var x  -> [SVar (getindex cenv (Bound x))]
-    | Let(x, erhs, ebody) -> 
-          scomp erhs cenv @ scomp ebody (Bound x :: cenv) @ [SSwap; SPop]
+    | Let(x, ebody) ->
+          let cenv' = List.fold (fun acc x -> Bound(fst x)::acc) cenv x
+          (List.fold (fun acc (var, erhs) -> (scomp erhs cenv')@acc) [] x)@scomp ebody cenv'@[SSwap; SPop]
     | Prim("+", e1, e2) -> 
           scomp e1 cenv @ scomp e2 (Value :: cenv) @ [SAdd] 
     | Prim("-", e1, e2) -> 
