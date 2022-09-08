@@ -373,6 +373,17 @@ let s2 = scomp e2 [];;
 let s3 = scomp e3 [];;
 let s5 = scomp e5 [];;
 
+let sinstrToInt s =
+    match s with
+    | SCstI i -> [0; i]
+    | SVar i -> [1; i]
+    | SAdd -> [2]
+    | SSub -> [3]
+    | SMul -> [4]
+    | SPop -> [5]
+    | SSwap -> [6]
+    
+
 (* Output the integers in list inss to the text file called fname: *)
 
 let intsToFile (inss : int list) (fname : string) = 
