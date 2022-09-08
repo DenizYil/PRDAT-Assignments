@@ -242,7 +242,7 @@ let rec getindex vs x =
     | y::yr -> if x=y then 0 else 1 + getindex yr x;;
 
 (* Compiling from expr to texpr *)
-let cenv = ["x"; "z"; "y"; "z"]
+let cenv = ["x"; "z"; "y"]
 let rec tcomp (e : expr) (cenv : string list) : texpr =
     match e with
     | CstI i -> TCstI i
