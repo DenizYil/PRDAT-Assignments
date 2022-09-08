@@ -76,6 +76,7 @@ let rec mem x vs =
 
 (* Checking whether an expression is closed.  The vs is 
    a list of the bound variables.  *)
+(*
 
 let rec closedin (e : expr) (vs : string list) : bool =
     match e with
@@ -85,11 +86,12 @@ let rec closedin (e : expr) (vs : string list) : bool =
       let vs1 = x :: vs 
       closedin erhs vs && closedin ebody vs1
     | Prim(ope, e1, e2) -> closedin e1 vs && closedin e2 vs;;
+*)
 
 (* An expression is closed if it is closed in the empty environment *)
 
-let closed1 e = closedin e [];;
-let _ = List.map closed1 [e1;e2;e3;e4;e5;e6;e7;e8;e9;e10]
+//let closed1 e = closedin e [];;
+//let _ = List.map closed1 [e1;e2;e3;e4;e5;e6;e7;e8;e9;e10]
 
 (* ---------------------------------------------------------------------- *)
 
@@ -111,6 +113,7 @@ let rec remove env x =
     | (y, e)::r -> if x=y then r else (y, e) :: remove r x;;
 
 (* Naive substitution, may capture free variables: *)
+(*
 
 let rec nsubst (e : expr) (env : (string * expr) list) : expr =
     match e with
@@ -120,35 +123,40 @@ let rec nsubst (e : expr) (env : (string * expr) list) : expr =
       let newenv = remove env x
       Let(x, nsubst erhs env, nsubst ebody newenv)
     | Prim(ope, e1, e2) -> Prim(ope, nsubst e1 env, nsubst e2 env)
+*)
 
 (* Some expressions with free variables: *)
 
+(*
 let e6 = Prim("+", Var "y", Var "z");;
+(*
 
 let e6s1 = nsubst e6 [("z", CstI 17)];;
 
 let e6s2 = nsubst e6 [("z", Prim("-", CstI 5, CstI 4))];;
 
 let e6s3 = nsubst e6 [("z", Prim("+", Var "z", Var "z"))];;
+*)
 
 // Shows that only z outside the Let gets substituted:
 let e7 = Prim("+", Let(["z", CstI 22], Prim("*", CstI 5, Var "z")),
                    Var "z");;
 
-let e7s1 = nsubst e7 [("z", CstI 100)];;
+//let e7s1 = nsubst e7 [("z", CstI 100)];;
 
 // Shows that only the z in the Let rhs gets substituted
 let e8 = Let(["z", Prim("*", CstI 22, Var "z")], Prim("*", CstI 5, Var "z"));;
 
-let e8s1 = nsubst e8 [("z", CstI 100)];;
+//let e8s1 = nsubst e8 [("z", CstI 100)];;
 
 // Shows (wrong) capture of free variable z under the let:
 let e9 = Let(["z", CstI 22], Prim("*", Var "y", Var "z"));;
+*)
 
-let e9s1 = nsubst e9 [("y", Var "z")];;
+//let e9s1 = nsubst e9 [("y", Var "z")];;
 
 // 
-let e9s2 = nsubst e9 [("z", Prim("-", CstI 5, CstI 4))];;
+//let e9s2 = nsubst e9 [("z", Prim("-", CstI 5, CstI 4))];;
 
 let newVar : string -> string = 
     let n = ref 0
@@ -157,6 +165,7 @@ let newVar : string -> string =
 
 (* Correct, capture-avoiding substitution *)
 
+(*
 let rec subst (e : expr) (env : (string * expr) list) : expr =
     match e with
     | CstI i -> e
@@ -166,7 +175,9 @@ let rec subst (e : expr) (env : (string * expr) list) : expr =
       let newenv = (x, Var newx) :: remove env x
       Let(newx, subst erhs env, subst ebody newenv)
     | Prim(ope, e1, e2) -> Prim(ope, subst e1 env, subst e2 env)
+*)
 
+(*
 let e6s1a = subst e6 [("z", CstI 17)];;
 
 let e6s2a = subst e6 [("z", Prim("-", CstI 5, CstI 4))];;
@@ -182,6 +193,7 @@ let e8s1a = subst e8 [("z", CstI 100)];;
 
 // Shows renaming of bound variable z (to z3), avoiding capture of free z
 let e9s1a = subst e9 [("y", Var "z")];;
+*)
 
 (* ---------------------------------------------------------------------- *)
 
@@ -374,15 +386,22 @@ let s3 = scomp e3 [];;
 let s5 = scomp e5 [];;
 
 let sinstrToInt s =
-    match s with
-    | SCstI i -> [0; i]
-    | SVar i -> [1; i]
-    | SAdd -> [2]
-    | SSub -> [3]
-    | SMul -> [4]
-    | SPop -> [5]
-    | SSwap -> [6]
-    
+     match s with
+     | SCstI i -> [0; i]
+     | SVar i -> [1; i]
+     | SAdd -> [2]
+     | SSub -> [3]
+     | SMul -> [4]
+     | SPop -> [5]
+     | SSwap -> [6]
+
+let assemble slist = List.fold (fun acc elem -> acc@(sinstrToInt elem)) [] slist
+
+let assembleTest = assemble (scomp e1 []);;
+(*
+assembleTest should return:
+val it: int list = [0; 17; 1; 0; 1; 1; 2; 6; 5]
+*)
 
 (* Output the integers in list inss to the text file called fname: *)
 
